@@ -13,14 +13,14 @@ env:
 ##  - CABALVER=1.16 GHCVER=7.2.2
 ##  - CABALVER=1.16 GHCVER=7.4.1
 ##  - CABALVER=1.16 GHCVER=7.4.2
- - CABALVER=1.16 GHCVER=7.6.1 PKG="transformers-0.3.0.0 clock-0.3"
- - CABALVER=1.16 GHCVER=7.6.2 PKG="transformers-0.3.0.0 clock-0.4.0.1"
- - CABALVER=1.18 GHCVER=7.6.3 PKG="transformers-0.4.0.0 clock-0.4.1.1"
- - CABALVER=1.18 GHCVER=7.8.1 PKG="transformers-0.4.1.0 clock-0.4.2.0"
- - CABALVER=1.18 GHCVER=7.8.2 PKG="transformers-0.4.2.0 clock-0.4.3.0"
- - CABALVER=1.18 GHCVER=7.8.3 PKG="transformers-0.4.3.0 clock-0.4.4.0"
- - CABALVER=1.18 GHCVER=7.8.4 PKG="clock-0.4.6.0"
- - CABALVER=1.22 GHCVER=7.10.1 PKG="clock-0.5.1"
+ - CABALVER=1.16 GHCVER=7.6.1 PKG="transformers-0.3.0.0 clock-0.5.0.0"
+ - CABALVER=1.16 GHCVER=7.6.2 PKG="transformers-0.3.0.0 clock-0.5.0.1"
+ - CABALVER=1.18 GHCVER=7.6.3 PKG="transformers-0.4.0.0 clock-0.5.1"
+ - CABALVER=1.18 GHCVER=7.8.1 PKG="transformers-0.4.1.0"
+ - CABALVER=1.18 GHCVER=7.8.2 PKG="transformers-0.4.2.0"
+ - CABALVER=1.18 GHCVER=7.8.3 PKG="transformers-0.4.3.0"
+ - CABALVER=1.18 GHCVER=7.8.4
+ - CABALVER=1.22 GHCVER=7.10.1
  - CABALVER=1.22 GHCVER=7.10.2
 ##  - CABALVER=head GHCVER=head
 
