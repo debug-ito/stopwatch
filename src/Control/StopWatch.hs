@@ -9,10 +9,14 @@ module Control.StopWatch (
   stopWatch
 ) where
 
-import Control.Monad.IO.Class (MonadIO)
-import System.Clock (TimeSpec)
+import Control.Monad.IO.Class (MonadIO, liftIO)
+import System.Clock (TimeSpec, getTime, Clock(Monotonic), diffTimeSpec)
 
 -- | Execute the given computation, measure the time it takes and
 -- return the result.
 stopWatch :: MonadIO m => m a -> m (a, TimeSpec)
-stopWatch = undefined
+stopWatch act = do
+  start <- liftIO $ getTime Monotonic
+  ret <- act
+  end <- liftIO $ getTime Monotonic
+  return (ret, end `diffTimeSpec` start)
