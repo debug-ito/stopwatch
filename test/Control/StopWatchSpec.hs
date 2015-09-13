@@ -5,7 +5,7 @@ import Control.Concurrent (threadDelay)
 import Test.Hspec
 
 import Control.StopWatch (stopWatch)
-import System.Clock (TimeSpec(sec,nsec))
+import System.Clock (TimeSpec, sec, nsec)
 
 main :: IO ()
 main = hspec spec
