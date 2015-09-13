@@ -1,10 +1,18 @@
 -- |
 -- Module: Control.StopWatch
--- Description:
+-- Description: A simple stopwatch utility
 -- Maintainer: Toshio Ito <debug.ito@gmail.com>
--- 
+--
+-- A simple stopwatch utility function(s).
+--
 module Control.StopWatch (
-  
+  stopWatch
 ) where
 
+import Control.Monad.IO.Class (MonadIO)
+import Data.Time.Clock (NominalDiffTime)
 
+-- | Execute the given computation, measure the time it takes and
+-- return the result.
+stopWatch :: MonadIO m => m a -> m (a, NominalDiffTime)
+stopWatch = undefined
