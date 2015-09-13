@@ -20,3 +20,5 @@ stopWatch act = do
   ret <- act
   end <- liftIO $ getTime Monotonic
   return (ret, end `diffTimeSpec` start)
+
+-- implementation borrowed from Turtle.Prelude.time (v1.2.1).
