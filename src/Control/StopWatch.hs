@@ -10,9 +10,9 @@ module Control.StopWatch (
 ) where
 
 import Control.Monad.IO.Class (MonadIO)
-import Data.Time.Clock (NominalDiffTime)
+import System.Clock (TimeSpec)
 
 -- | Execute the given computation, measure the time it takes and
 -- return the result.
-stopWatch :: MonadIO m => m a -> m (a, NominalDiffTime)
+stopWatch :: MonadIO m => m a -> m (a, TimeSpec)
 stopWatch = undefined

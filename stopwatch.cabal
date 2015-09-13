@@ -20,8 +20,8 @@ library
   exposed-modules:      Control.StopWatch
   -- other-modules:
   build-depends:        base >=4.6.0 && <5.0,
-                        time >=1.4.0 && <1.5,
-                        transformers >=0.3.0 && <0.4
+                        transformers >=0.3.0 && <0.4,
+                        clock >=0.5.1 && <0.6
 
 -- executable stopwatch
 --   default-language:     Haskell2010
@@ -40,7 +40,8 @@ test-suite spec
   main-is:              Spec.hs
   other-modules:        Control.StopWatchSpec
   build-depends:        base, stopwatch,
-                        hspec
+                        hspec,
+                        clock
 
 source-repository head
   type:                 git

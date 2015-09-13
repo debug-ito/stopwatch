@@ -5,6 +5,7 @@ import Control.Concurrent (threadDelay)
 import Test.Hspec
 
 import Control.StopWatch (stopWatch)
+import System.Clock (TimeSpec(sec,nsec))
 
 main :: IO ()
 main = hspec spec
@@ -12,7 +13,7 @@ main = hspec spec
 testStopWatch :: Int -> Int -> Expectation
 testStopWatch threshold_range_msec target_msec = do
   (_, difftime) <- stopWatch $ threadDelay (target_msec * 1000)
-  let got_diff_msec = floor (difftime * 1000)
+  let got_diff_msec = fromIntegral $ (sec difftime) * 1000 + ((nsec difftime) `div` 1000000)
   got_diff_msec `shouldSatisfy` (>= target_msec - threshold_range_msec)
   got_diff_msec `shouldSatisfy` (<= target_msec + threshold_range_msec)
 
