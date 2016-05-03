@@ -16,7 +16,7 @@ bug-reports:            https://github.com/debug-ito/stopwatch/issues
 library
   default-language:     Haskell2010
   hs-source-dirs:       src
-  ghc-options:          -Wall
+  ghc-options:          -Wall -fno-warn-unused-imports
   exposed-modules:      Control.StopWatch
   -- other-modules:
   build-depends:        base >=2 && <6,
@@ -36,7 +36,7 @@ test-suite spec
   type:                 exitcode-stdio-1.0
   default-language:     Haskell2010
   hs-source-dirs:       test
-  ghc-options:          -Wall
+  ghc-options:          -Wall -fno-warn-unused-imports "-with-rtsopts=-M512m"
   main-is:              Spec.hs
   other-modules:        Control.StopWatchSpec
   build-depends:        base, stopwatch,
