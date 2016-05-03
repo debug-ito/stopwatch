@@ -12,13 +12,18 @@ module Control.StopWatch (
 import Control.Monad.IO.Class (MonadIO, liftIO)
 import System.Clock (TimeSpec, getTime, Clock(Monotonic), diffTimeSpec)
 
+getTime' :: MonadIO m => m TimeSpec
+getTime' = do
+  t <- liftIO $ getTime Monotonic
+  t `seq` return t
+
 -- | Execute the given computation, measure the time it takes and
 -- return the result.
 stopWatch :: MonadIO m => m a -> m (a, TimeSpec)
 stopWatch act = do
-  start <- liftIO $ getTime Monotonic
+  start <- getTime'
   ret <- act
-  end <- liftIO $ getTime Monotonic
+  end <- getTime'
   return (ret, end `diffTimeSpec` start)
 
 -- implementation borrowed from Turtle.Prelude.time (v1.2.1).
