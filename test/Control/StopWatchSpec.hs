@@ -11,18 +11,28 @@ import System.Clock (sec, nsec)
 main :: IO ()
 main = hspec spec
 
-testStopWatch :: Int -> Int -> Expectation
-testStopWatch threshold_range_msec target_msec = do
-  (_, difftime) <- stopWatch $ threadDelay (target_msec * 1000)
-  let got_diff_msec = fromIntegral $ (sec difftime) * 1000 + ((nsec difftime) `div` 1000000)
-  got_diff_msec `shouldSatisfy` (>= target_msec - threshold_range_msec)
+checker :: Int -> Int -> (String, Int -> Expectation)
+checker threshold_range_msec target_msec = (description, checker_func) where
 #ifdef TEST_DELAY_UPPER_BOUND
-  got_diff_msec `shouldSatisfy` (<= target_msec + threshold_range_msec)
+  description = "target " ++ (show target_msec) ++ "msec and range +- " ++ (show threshold_range_msec) ++ "msec"
+  checker_func got_diff_msec = do
+    got_diff_msec `shouldSatisfy` (>= target_msec - threshold_range_msec)
+    got_diff_msec `shouldSatisfy` (<= target_msec + threshold_range_msec)
+#else
+  description = "target " ++ (show target_msec) ++ "msec and lower bound -" ++ (show threshold_range_msec) ++ "msec"
+  checker_func got_diff_msec = do
+    got_diff_msec `shouldSatisfy` (>= target_msec - threshold_range_msec)
 #endif
 
 specStopWatch :: Int -> Int -> Spec
-specStopWatch trange target = it ("should work for target " ++ (show target) ++ "msec and range " ++ (show trange) ++ "msec") $
-  testStopWatch trange target
+specStopWatch threshold_range_msec target_msec =
+  it ("should work for " ++ description) $ do
+    (_, difftime) <- stopWatch $ threadDelay (target_msec * 1000)
+    let got_diff_msec = fromIntegral $ (sec difftime) * 1000 + ((nsec difftime) `div` 1000000)
+    checkerFunc got_diff_msec
+  where
+    (description, checkerFunc) = checker threshold_range_msec target_msec
+    
 
 spec :: Spec
 spec = do
