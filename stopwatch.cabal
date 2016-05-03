@@ -34,7 +34,7 @@ library
 
 flag test_delay_upper_bound
   description: Enable test of checking delay upper bound
-  default: True
+  default: False
 
 test-suite spec
   type:                 exitcode-stdio-1.0
