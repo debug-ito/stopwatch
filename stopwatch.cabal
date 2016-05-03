@@ -39,7 +39,7 @@ flag test_delay_upper_bound
 
 flag test_threaded
   description: Enable -threaded option when building the test
-  default: True
+  default: False
 
 test-suite spec
   type:                 exitcode-stdio-1.0
