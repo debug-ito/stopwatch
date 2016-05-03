@@ -32,11 +32,17 @@ library
 --   -- other-extensions:    
 --   build-depends:        base >=4 && <5
 
+flag test_delay_upper_bound
+  description: Enable test of checking delay upper bound
+  default: False
+
 test-suite spec
   type:                 exitcode-stdio-1.0
   default-language:     Haskell2010
   hs-source-dirs:       test
   ghc-options:          -Wall -fno-warn-unused-imports "-with-rtsopts=-M512m"
+  if flag(test_delay_upper_bound)
+    cpp-options:        -DTEST_DELAY_UPPER_BOUND
   main-is:              Spec.hs
   other-modules:        Control.StopWatchSpec
   build-depends:        base, stopwatch,

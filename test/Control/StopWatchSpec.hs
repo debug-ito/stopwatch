@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 module Control.StopWatchSpec (main, spec) where
 
 import Control.Concurrent (threadDelay)
@@ -15,7 +16,9 @@ testStopWatch threshold_range_msec target_msec = do
   (_, difftime) <- stopWatch $ threadDelay (target_msec * 1000)
   let got_diff_msec = fromIntegral $ (sec difftime) * 1000 + ((nsec difftime) `div` 1000000)
   got_diff_msec `shouldSatisfy` (>= target_msec - threshold_range_msec)
+#ifdef TEST_DELAY_UPPER_BOUND
   got_diff_msec `shouldSatisfy` (<= target_msec + threshold_range_msec)
+#endif
 
 specStopWatch :: Int -> Int -> Spec
 specStopWatch trange target = it ("should work for target " ++ (show target) ++ "msec and range " ++ (show trange) ++ "msec") $
