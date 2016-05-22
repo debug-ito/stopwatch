@@ -1,5 +1,10 @@
 # Revision history for stopwatch
 
+## 0.1.0.2 -- 2016-05-22
+
+* Dependency version range for `base` was too wide.
+
+
 ## 0.1.0.1 -- 2016-05-03
 
 * Expand dependency version ranges for `transformers` and `clock`.
