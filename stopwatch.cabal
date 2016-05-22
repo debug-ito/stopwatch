@@ -19,7 +19,7 @@ library
   ghc-options:          -Wall -fno-warn-unused-imports
   exposed-modules:      Control.StopWatch
   -- other-modules:
-  build-depends:        base >=2 && <6,
+  build-depends:        base >=2 && <5.0,
                         transformers >=0.3.0 && <0.6,
                         -- clock <0.5 is buggy!
                         clock >=0.5 && <0.8
