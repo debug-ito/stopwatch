@@ -54,7 +54,7 @@ test-suite spec
   main-is:              Spec.hs
   other-modules:        Control.StopWatchSpec
   build-depends:        base, stopwatch,
-                        hspec <2.4,
+                        hspec <2.5,
                         clock
 
 source-repository head
