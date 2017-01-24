@@ -1,5 +1,10 @@
 # Revision history for stopwatch
 
+## 0.1.0.4 -- 2017-01-24
+
+* Confirmed build with `hspec-2.4.0`.
+
+
 ## 0.1.0.3 -- 2016-10-09
 
 * Confirmed build with `hspec-2.3.0`.
