@@ -1,5 +1,11 @@
 # Revision history for stopwatch
 
+## 0.1.0.5 -- 2018-03-14
+
+* Confirmed test with `hspec-2.5.0`.
+  Remove its dependency upper bound, because I think it's stable enough.
+
+
 ## 0.1.0.4 -- 2017-01-24
 
 * Confirmed build with `hspec-2.4.0`.
