@@ -1,5 +1,10 @@
 # Revision history for stopwatch
 
+## 0.1.0.6 -- 2019-05-01
+
+* Confirmed test with `clock-0.8`.
+
+
 ## 0.1.0.5 -- 2018-03-14
 
 * Confirmed test with `hspec-2.5.0`.
