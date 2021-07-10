@@ -53,6 +53,7 @@ test-suite spec
     cpp-options:        -DTEST_DELAY_UPPER_BOUND
   main-is:              Spec.hs
   other-modules:        Control.StopWatchSpec
+  build-tool-depends:   hspec-discover:hspec-discover
   build-depends:        base, stopwatch,
                         hspec,
                         clock
