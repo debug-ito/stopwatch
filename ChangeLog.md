@@ -1,5 +1,9 @@
 # Revision history for stopwatch
 
+## 0.1.0.7 -- 2025-09-01
+
+* Confirmed test with `transformers-0.6.1.0`.
+
 ## 0.1.0.6 -- 2019-05-01
 
 * Confirmed test with `clock-0.8`.
